@@ -16,5 +16,5 @@ export default function Routes() {
       <Route path="/dashboard" component={Dashboard} />
       <Route path="/profile" component={Profile} />
     </Switch>
-  )
+  );
 }
