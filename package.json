@@ -20,7 +20,8 @@
     "react-scripts": "4.0.1",
     "reactotron-react-js": "^3.3.7",
     "styled-components": "^5.2.1",
-    "web-vitals": "^0.2.4"
+    "web-vitals": "^0.2.4",
+    "yup": "^0.32.8"
   },
   "scripts": {
     "start": "react-app-rewired start",
@@ -62,6 +63,7 @@
   },
   "comments": {
     "customize-cra": "módulo do babel que permite navegar entre as pastas, arquivos de forma mais simples",
-    "react-app-rewired": "utilizado junto com o customiza-cra. altera-se nesse arquivo Scripts - start, build, test de react-scripts para react-app-rewired"
+    "react-app-rewired": "utilizado junto com o customiza-cra. altera-se nesse arquivo Scripts - start, build, test de react-scripts para react-app-rewired",
+    "yup": "biblioteca ajuda a fazer validacoes."
   }
 }
