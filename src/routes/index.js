@@ -2,11 +2,12 @@ import React from 'react';
 import { Switch } from 'react-router-dom';
 import Route from './Route';
 
-import SignIn from '../pages/SignIn';
-import SignUp from '../pages/SignUp';
+// ~ => sempre que comacar com ~ volta p pasta raiz definida no arquivo config-overrides.js (src)
+import SignIn from '~/pages/SignIn';
+import SignUp from '~/pages/SignUp';
 
-import Dashboard from '../pages/Dashboard';
-import Profile from '../pages/Profile';
+import Dashboard from '~/pages/Dashboard';
+import Profile from '~/pages/Profile';
 
 export default function Routes() {
   return (

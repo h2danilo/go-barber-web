@@ -21,9 +21,9 @@
     "web-vitals": "^0.2.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -46,6 +46,7 @@
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
+    "customize-cra": "^1.0.0",
     "eslint": "^7.18.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-prettier": "^7.2.0",
@@ -54,6 +55,11 @@
     "eslint-plugin-prettier": "^3.3.1",
     "eslint-plugin-react": "^7.22.0",
     "eslint-plugin-react-hooks": "^4.2.0",
-    "prettier": "^2.2.1"
+    "prettier": "^2.2.1",
+    "react-app-rewired": "^2.1.8"
+  },
+  "comments": {
+    "customize-cra": "módulo do babel que permite navegar entre as pastas, arquivos de forma mais simples",
+    "react-app-rewired": "utilizado junto com o customiza-cra. altera-se nesse arquivo Scripts - start, build, test de react-scripts para react-app-rewired"
   }
 }
