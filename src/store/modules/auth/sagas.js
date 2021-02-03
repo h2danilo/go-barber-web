@@ -2,28 +2,32 @@ import { takeLatest, call, put, all } from 'redux-saga/effects';
 
 import history from '~/services/history';
 import api from '~/services/api';
-import { signInSucess } from './actions';
+import { signInSucess, signFailure } from './actions';
 
 // * = funcionalidade do JS que chama generator, como se fosse um assync, no caso nao utilizou assync, devido, generator ser mais potente que o assync
 export function* signIn({ payload }) {
-  const { email, password } = payload;
-  // yield = como se fosse o await do generator, td que vier após irá aguardar execucao.
-  // call =  responsavel por chamar metodos. que sao assincronos e que retornar promisses.
-  const response = yield call(api.post, 'sessions', {
-    email,
-    password,
-  });
+  try {
+    const { email, password } = payload;
+    // yield = como se fosse o await do generator, td que vier após irá aguardar execucao.
+    // call =  responsavel por chamar metodos. que sao assincronos e que retornar promisses.
+    const response = yield call(api.post, 'sessions', {
+      email,
+      password,
+    });
 
-  const { token, user } = response.data;
+    const { token, user } = response.data;
 
-  if (!user.provider) {
-    console.tron.error('Usuário não é prestador');
-    return;
+    if (!user.provider) {
+      console.tron.error('Usuário não é prestador');
+      return;
+    }
+    // metodo put do saga é utilizado para disparar uma action
+    yield put(signInSucess(token, user));
+
+    history.push('/dashboard');
+  } catch (err) {
+    yield put(signFailure());
   }
-  // metodo put do saga é utilizado para disparar uma action
-  yield put(signInSucess(token, user));
-
-  history.push('/dashboard');
 }
 
 // all => cadastrar varios listners, que ficar ouvindo qdo uma action for disparada para disparar essa acao
