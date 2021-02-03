@@ -6,5 +6,5 @@ export default (reducers, middlewares) => {
       ? compose(console.tron.createEnhancer(), applyMiddleware(...middlewares))
       : applyMiddleware(...middlewares);
 
-  createStore(reducers, enhancer);
+  return createStore(reducers, enhancer);
 };
