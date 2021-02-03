@@ -1,7 +1,11 @@
 import React from 'react';
+// useDispatch -> para disparar uma action
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Form, Input } from '@rocketseat/unform';
 import * as Yup from 'yup';
+
+import { signInRequest } from '~/store/modules/auth/actions';
 
 import logo from '~/assets/logo.svg';
 
@@ -13,8 +17,11 @@ const schema = Yup.object().shape({
 });
 
 function SignIn() {
-  function handleSubmit(data) {
-    console.tron.log(data);
+  const dispatch = useDispatch();
+
+  function handleSubmit({ email, password }) {
+    // console.tron.log(data);
+    dispatch(signInRequest(email, password));
   }
 
   return (
