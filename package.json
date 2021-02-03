@@ -25,6 +25,7 @@
     "reactotron-redux": "^3.1.1",
     "reactotron-redux-saga": "^4.2.2",
     "redux": "^4.0.4",
+    "redux-persist": "^6.0.0",
     "redux-saga": "^1.0.5",
     "styled-components": "^5.2.1",
     "web-vitals": "^0.2.4",
@@ -71,6 +72,7 @@
   "comments": {
     "customize-cra": "módulo do babel que permite navegar entre as pastas, arquivos de forma mais simples",
     "react-app-rewired": "utilizado junto com o customiza-cra. altera-se nesse arquivo Scripts - start, build, test de react-scripts para react-app-rewired",
-    "yup": "biblioteca ajuda a fazer validacoes."
+    "yup": "biblioteca ajuda a fazer validacoes.",
+    "redux-persist": "biblioteca que permite salvar o redux store no armazenamento local do seu navegador"
   }
 }
