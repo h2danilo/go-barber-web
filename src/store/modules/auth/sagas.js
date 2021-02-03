@@ -32,6 +32,26 @@ export function* signIn({ payload }) {
   }
 }
 
+export function* signUp({ payload }) {
+  try {
+    const { name, email, password } = payload;
+
+    // yield = como se fosse o await do generator, td que vier após irá aguardar execucao.
+    // call =  responsavel por chamar metodos. que sao assincronos e que retornar promisses.
+    yield call(api.post, 'users', {
+      name,
+      email,
+      password,
+      provider: true,
+    });
+
+    history.push('/');
+  } catch (err) {
+    toast.error('Falha no cadastro, verifique seu dados!');
+    yield put(signFailure());
+  }
+}
+
 // all => cadastrar varios listners, que ficar ouvindo qdo uma action for disparada para disparar essa acao
 // takeLatest => se usuario clicar uma vez no botao para adicionar no carrinho e logo em seguida clicar novamente
 // antes da chamada api finalizar, o saga irá descartar a primeira chamada e executar a atual (adicionando uma vez só no carrinho).
@@ -39,4 +59,5 @@ export function* signIn({ payload }) {
 export default all([
   // takeLatest => toda vez que ouvir requisicao SIGN_IN_REQUEST chama a funcao "signIn"
   takeLatest('@auth/SIGN_IN_REQUEST', signIn),
+  takeLatest('@auth/SIGN_UP_REQUEST', signUp),
 ]);
