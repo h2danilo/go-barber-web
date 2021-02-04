@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 
 import logo from '~/assets/logo_50.svg';
 
+import Notifications from '~/components/Notifications';
+
 import { Container, Content, Profile } from './styles';
 
 function Header() {
@@ -15,6 +17,7 @@ function Header() {
         </nav>
 
         <aside>
+          <Notifications />
           <Profile>
             <div>
               <strong>Danilo Valim</strong>

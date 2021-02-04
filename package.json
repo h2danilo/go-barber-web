@@ -18,6 +18,8 @@
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-icons": "^4.1.0",
+    "react-perfect-scrollbar": "^1.5.8",
     "react-redux": "^7.1.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
@@ -74,6 +76,7 @@
     "customize-cra": "módulo do babel que permite navegar entre as pastas, arquivos de forma mais simples",
     "react-app-rewired": "utilizado junto com o customiza-cra. altera-se nesse arquivo Scripts - start, build, test de react-scripts para react-app-rewired",
     "yup": "biblioteca ajuda a fazer validacoes.",
-    "redux-persist": "biblioteca que permite salvar o redux store no armazenamento local do seu navegador"
+    "redux-persist": "biblioteca que permite salvar o redux store no armazenamento local do seu navegador",
+    "react-perfect-scrollbar": "utilizado na barra de notificacao, p/ qdo tiver muitas fixar um tamanho padrao e add um scrollbar"
   }
 }
