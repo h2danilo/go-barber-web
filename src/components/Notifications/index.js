@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
+import { useSelector } from 'react-redux';
 
 import { MdNotifications } from 'react-icons/md';
 import { parseISO, formatDistance } from 'date-fns';
@@ -17,6 +18,7 @@ import {
 function Notifications() {
   const [visible, setVisible] = useState(false);
   const [notifications, setNotifications] = useState([]);
+  const token = useSelector((state) => state.auth.token);
 
   const hasUnread = useMemo(
     // usando forma baixa ira retornar true ou false;
@@ -28,6 +30,7 @@ function Notifications() {
   // carregando notificacoes do usuario
   useEffect(() => {
     async function loadNotifications() {
+      api.defaults.headers.Authorization = `Bearer ${token}`;
       const response = await api.get('notifications');
 
       const data = response.data.map((notification) => ({
@@ -43,7 +46,7 @@ function Notifications() {
     }
 
     loadNotifications();
-  }, []);
+  }, [token]);
 
   function handleToggleVisible() {
     setVisible(!visible);
