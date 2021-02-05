@@ -5,10 +5,11 @@ import { updateProfileSuccess, updateProfileFailure } from './actions';
 
 export function* updateProfile({ payload }) {
   try {
-    const { name, email, ...rest } = payload.data; // salvo variavel name, email, e todo restante de payload.data salvo dentro da variavel rest
+    const { name, email, avatar_id, ...rest } = payload.data; // salvo variavel name, email, e todo restante de payload.data salvo dentro da variavel rest
     const profile = {
       name,
       email,
+      avatar_id,
       ...(rest.oldPassword ? rest : {}),
     };
 
