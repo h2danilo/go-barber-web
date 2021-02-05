@@ -65,6 +65,10 @@ export function setToken({ payload }) {
   }
 }
 
+export function signOut() {
+  history.push('/');
+}
+
 // all => cadastrar varios listners, que ficar ouvindo qdo uma action for disparada para disparar essa acao
 // takeLatest => se usuario clicar uma vez no botao para adicionar no carrinho e logo em seguida clicar novamente
 // antes da chamada api finalizar, o saga irá descartar a primeira chamada e executar a atual (adicionando uma vez só no carrinho).
@@ -74,4 +78,5 @@ export default all([
   // takeLatest => toda vez que ouvir requisicao SIGN_IN_REQUEST chama a funcao "signIn"
   takeLatest('@auth/SIGN_IN_REQUEST', signIn),
   takeLatest('@auth/SIGN_UP_REQUEST', signUp),
+  takeLatest('@auth/SIGN_OUT', signOut),
 ]);
